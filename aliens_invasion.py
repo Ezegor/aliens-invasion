@@ -22,6 +22,9 @@ class AlienInvasion:
         self.settings.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Aliens Ivasion")
 
+        self.bg_surf = pygame.image.load('images/kosmos.jpg').convert()
+        self.bg_surf = pygame.transform.scale(self.bg_surf,
+                                              (self.settings.screen_width, self.settings.screen_height))
         #Is button pressed flags.
         self.lpressed = False
         self.rpressed = False
@@ -125,7 +128,7 @@ class AlienInvasion:
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
-        self.screen.fill(self.settings.bg_color)
+        self.screen.blit(self.bg_surf, (0, 0))
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.ship.blitme()
