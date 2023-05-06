@@ -59,6 +59,7 @@ class AlienInvasion:
                 self._update_bullets()
             self._update_screen()
             self.clock.tick(60)
+            pygame.display.set_caption(str(self.clock.get_fps()))
     
     def _check_enents(self):
         """Respond to keypresses and mouse events."""
@@ -83,6 +84,7 @@ class AlienInvasion:
             self.stats.reset_stats()
             self.sb.prep_score()
             self.sb.prep_level()
+            self.sb.prep_ships()
             self.game_active = True
 
             self.bullets.empty()
@@ -163,7 +165,7 @@ class AlienInvasion:
         
 
     def _create_fleet(self):
-        """Create the fleet of aiens."""
+        """Create the fleet of aliens."""
         # Make an alien and keep adding aliens until ther's no room left.
         # Spacing between aliens is one alien width and one alien height.
         alien = Alien(self)
@@ -215,8 +217,6 @@ class AlienInvasion:
         self._check_fleet_edges()
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
             self._sheep_hit()
-
-
 
     def _sheep_hit(self):
         """Respond to the ship being hit an alien."""

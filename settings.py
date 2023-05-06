@@ -14,11 +14,11 @@ class Settings:
 
         #Bullet settings
         self.bullet_speed = 2.0
-        self.bullet_width = 3000
+        self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (255, 0, 0)
         self.bullet_allowed = 3
-        self.kill_bullet = False
+        self.kill_bullet = True
 
         # Alien settings
         self.alien_speed = 1.0
